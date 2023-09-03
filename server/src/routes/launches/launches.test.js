@@ -77,3 +77,27 @@ describe('Test POST /launch', () => {
     })
 })
 
+
+describe('Test Delete /launch:id', () => {
+    test('It should respond with 200 success', async () => {
+        const id = 100;
+        const response = await request(app)
+            .delete(`/launches/${id}`)
+            .expect(200)
+            .expect('Content-Type', /json/);
+
+        expect(response.body).toStrictEqual({
+            flightNumber: 100,
+            mission: 'Kepler Exploratoion X',
+            rocket: 'Explore IS1',
+            launchDate: "2030-12-26T19:00:00.000Z",
+            target: 'Kepler-442 b',
+            customer: ['ZTM', 'NASA'],
+            upcoming: false,
+            success: false,
+        });
+
+
+    })
+})
+
