@@ -5,13 +5,16 @@
   "main": "src/server.js",
   "scripts": {
     "watch": "set PORT=8000 && nodemon server.js",
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "start": "set PORT=8000 && node src/server.js",
     "cluster": "pm2 start src/server.js -i max"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "jest": {
+    "testEnvironment": "node"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "csv-parse": "^5.5.0",
